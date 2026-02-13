@@ -58,6 +58,17 @@ import property410 from "./property-4-10.jpeg";
 import property411 from "./property-4-11.jpeg";
 import property412 from "./property-4-12.jpeg";
 import property413 from "./property-4-13.jpeg";
+import avatar from "./person1.jpg";
+import airConditioning from "./air-conditioning.webp";
+import balcony from "./balcony.png";
+import heating from "./heating.avif";
+import kitchen from "./kitchen.webp";
+import parking from "./parking.png";
+import petFriendly from "./pet-friendly.jpg";
+import pool from "./pool.webp";
+import tv from "./tv.png";
+import washingMachine from "./washing-machine.png";
+import wifi from "./wifi.png";
 
 export const destinations = [
   {
@@ -146,12 +157,17 @@ export const properties = [
     title: "Studio Haut Standing à Louer",
     adress: "Douala, Bonamoussadi",
     city: "Douala",
+    description: `Découvrez ce superbe appartement de haut standing, idéalement conçu pour offrir confort, élégance et fonctionnalité. Doté de deux chambres spacieuses, chacune aménagée avec soin, ce logement offre un cadre de vie raffiné et chaleureux, parfait pour les séjours professionnels comme pour les escapades en famille.
+
+L'espace de vie lumineux s'ouvre sur un salon moderne et convivial, harmonieusement agencé et décoré avec des matériaux de qualité. La cuisine entièrement équipée, aux finitions haut de gamme, vous permet de profiter pleinement de votre séjour en toute autonomie.
+
+L'appartement dispose également d'une salle de bain contemporaine, d'équipements modernes (connexion Wi-Fi haut débit, climatisation, télévision écran plat) et de rangements optimisés pour un confort absolu. Chaque détail a été pensé pour garantir une expérience premium, alliant intimité, bien-être et sérénité.`,
     country: "Cameroun",
     latitude: 4.094354,
     longitude: 9.7393663,
     category: "Studio",
-    paymentFrequency: "Month",
-    price: 200000,
+    paymentFrequency: "Night",
+    price: 20000,
     rate: 4.5,
     reviews: 150,
     bedroom: 1,
@@ -164,12 +180,17 @@ export const properties = [
     title: "Studio Haut Standing à Louer",
     adress: "Douala, Bonapriso",
     city: "Douala",
+    description: `Découvrez ce superbe appartement de haut standing, idéalement conçu pour offrir confort, élégance et fonctionnalité. Doté de deux chambres spacieuses, chacune aménagée avec soin, ce logement offre un cadre de vie raffiné et chaleureux, parfait pour les séjours professionnels comme pour les escapades en famille.
+
+L'espace de vie lumineux s'ouvre sur un salon moderne et convivial, harmonieusement agencé et décoré avec des matériaux de qualité. La cuisine entièrement équipée, aux finitions haut de gamme, vous permet de profiter pleinement de votre séjour en toute autonomie.
+
+L'appartement dispose également d'une salle de bain contemporaine, d'équipements modernes (connexion Wi-Fi haut débit, climatisation, télévision écran plat) et de rangements optimisés pour un confort absolu. Chaque détail a été pensé pour garantir une expérience premium, alliant intimité, bien-être et sérénité.`,
     country: "Cameroun",
     latitude: 4.0256151,
     longitude: 9.6930153,
     category: "Studio",
-    paymentFrequency: "Month",
-    price: 500000,
+    paymentFrequency: "Night",
+    price: 50000,
     rate: 4.7,
     reviews: 180,
     bedroom: 1,
@@ -199,12 +220,17 @@ export const properties = [
     title: "Appartement 2 Chambres Haut Standing à Louer",
     adress: "Yaounde, Odza",
     city: "Yaounde",
+    description: `Découvrez ce superbe appartement de haut standing, idéalement conçu pour offrir confort, élégance et fonctionnalité. Doté de deux chambres spacieuses, chacune aménagée avec soin, ce logement offre un cadre de vie raffiné et chaleureux, parfait pour les séjours professionnels comme pour les escapades en famille.
+
+L'espace de vie lumineux s'ouvre sur un salon moderne et convivial, harmonieusement agencé et décoré avec des matériaux de qualité. La cuisine entièrement équipée, aux finitions haut de gamme, vous permet de profiter pleinement de votre séjour en toute autonomie.
+
+L'appartement dispose également d'une salle de bain contemporaine, d'équipements modernes (connexion Wi-Fi haut débit, climatisation, télévision écran plat) et de rangements optimisés pour un confort absolu. Chaque détail a été pensé pour garantir une expérience premium, alliant intimité, bien-être et sérénité.`,
     country: "Cameroun",
     latitude: 3.7985968,
     longitude: 11.5291189,
     category: "Appartement",
-    paymentFrequency: "Month",
-    price: 350000,
+    paymentFrequency: "Night",
+    price: 35000,
     rate: 5,
     reviews: 100,
     bedroom: 2,
@@ -229,13 +255,18 @@ export const properties = [
     id: 4,
     title: "Appartement 3 Chambres Haut Standing à Louer",
     adress: "Douala, Bonanjo",
+    description: `Découvrez ce superbe appartement de haut standing, idéalement conçu pour offrir confort, élégance et fonctionnalité. Doté de deux chambres spacieuses, chacune aménagée avec soin, ce logement offre un cadre de vie raffiné et chaleureux, parfait pour les séjours professionnels comme pour les escapades en famille.
+
+L'espace de vie lumineux s'ouvre sur un salon moderne et convivial, harmonieusement agencé et décoré avec des matériaux de qualité. La cuisine entièrement équipée, aux finitions haut de gamme, vous permet de profiter pleinement de votre séjour en toute autonomie.
+
+L'appartement dispose également d'une salle de bain contemporaine, d'équipements modernes (connexion Wi-Fi haut débit, climatisation, télévision écran plat) et de rangements optimisés pour un confort absolu. Chaque détail a été pensé pour garantir une expérience premium, alliant intimité, bien-être et sérénité.`,
     city: "Douala",
     country: "Cameroun",
     latitude: 4.043024,
     longitude: 9.6864962,
     category: "Appartement",
-    paymentFrequency: "Month",
-    price: 500000,
+    paymentFrequency: "Night",
+    price: 50000,
     rate: 4.9,
     reviews: 80,
     bedroom: 3,
@@ -262,13 +293,18 @@ export const properties = [
     id: 5,
     title: "Studio Haut Standing à Louer",
     adress: "Douala, Bonamoussadi",
+    description: `Découvrez ce superbe appartement de haut standing, idéalement conçu pour offrir confort, élégance et fonctionnalité. Doté de deux chambres spacieuses, chacune aménagée avec soin, ce logement offre un cadre de vie raffiné et chaleureux, parfait pour les séjours professionnels comme pour les escapades en famille.
+
+L'espace de vie lumineux s'ouvre sur un salon moderne et convivial, harmonieusement agencé et décoré avec des matériaux de qualité. La cuisine entièrement équipée, aux finitions haut de gamme, vous permet de profiter pleinement de votre séjour en toute autonomie.
+
+L'appartement dispose également d'une salle de bain contemporaine, d'équipements modernes (connexion Wi-Fi haut débit, climatisation, télévision écran plat) et de rangements optimisés pour un confort absolu. Chaque détail a été pensé pour garantir une expérience premium, alliant intimité, bien-être et sérénité.`,
     city: "Douala",
     country: "Cameroun",
-    latitude: 4.094354,
-    longitude: 9.7393663,
+    latitude: 4.094454,
+    longitude: 9.7396663,
     category: "Studio",
-    paymentFrequency: "Month",
-    price: 200000,
+    paymentFrequency: "Night",
+    price: 20000,
     rate: 4.5,
     reviews: 150,
     bedroom: 1,
@@ -280,13 +316,18 @@ export const properties = [
     id: 6,
     title: "Studio Haut Standing à Louer",
     adress: "Douala, Bonapriso",
+    description: `Découvrez ce superbe appartement de haut standing, idéalement conçu pour offrir confort, élégance et fonctionnalité. Doté de deux chambres spacieuses, chacune aménagée avec soin, ce logement offre un cadre de vie raffiné et chaleureux, parfait pour les séjours professionnels comme pour les escapades en famille.
+
+L'espace de vie lumineux s'ouvre sur un salon moderne et convivial, harmonieusement agencé et décoré avec des matériaux de qualité. La cuisine entièrement équipée, aux finitions haut de gamme, vous permet de profiter pleinement de votre séjour en toute autonomie.
+
+L'appartement dispose également d'une salle de bain contemporaine, d'équipements modernes (connexion Wi-Fi haut débit, climatisation, télévision écran plat) et de rangements optimisés pour un confort absolu. Chaque détail a été pensé pour garantir une expérience premium, alliant intimité, bien-être et sérénité.`,
     city: "Douala",
     country: "Cameroun",
     latitude: 4.0256151,
-    longitude: 9.6930153,
+    longitude: 9.6970153,
     category: "Studio",
-    paymentFrequency: "Month",
-    price: 500000,
+    paymentFrequency: "Night",
+    price: 50000,
     rate: 4.7,
     reviews: 180,
     bedroom: 1,
@@ -315,13 +356,18 @@ export const properties = [
     id: 7,
     title: "Appartement 2 Chambres Haut Standing à Louer",
     adress: "Yaounde, Odza",
+    description: `Découvrez ce superbe appartement de haut standing, idéalement conçu pour offrir confort, élégance et fonctionnalité. Doté de deux chambres spacieuses, chacune aménagée avec soin, ce logement offre un cadre de vie raffiné et chaleureux, parfait pour les séjours professionnels comme pour les escapades en famille.
+
+L'espace de vie lumineux s'ouvre sur un salon moderne et convivial, harmonieusement agencé et décoré avec des matériaux de qualité. La cuisine entièrement équipée, aux finitions haut de gamme, vous permet de profiter pleinement de votre séjour en toute autonomie.
+
+L'appartement dispose également d'une salle de bain contemporaine, d'équipements modernes (connexion Wi-Fi haut débit, climatisation, télévision écran plat) et de rangements optimisés pour un confort absolu. Chaque détail a été pensé pour garantir une expérience premium, alliant intimité, bien-être et sérénité.`,
     city: "Yaounde",
     country: "Cameroun",
-    latitude: 3.7985968,
-    longitude: 11.5291189,
+    latitude: 3.7985168,
+    longitude: 11.5591189,
     category: "Appartement",
-    paymentFrequency: "Month",
-    price: 350000,
+    paymentFrequency: "Night",
+    price: 35000,
     rate: 5,
     reviews: 100,
     bedroom: 2,
@@ -347,12 +393,17 @@ export const properties = [
     title: "Appartement 3 Chambres Haut Standing à Louer",
     adress: "Douala, Bonanjo",
     city: "Douala",
+    description: `Découvrez ce superbe appartement de haut standing, idéalement conçu pour offrir confort, élégance et fonctionnalité. Doté de deux chambres spacieuses, chacune aménagée avec soin, ce logement offre un cadre de vie raffiné et chaleureux, parfait pour les séjours professionnels comme pour les escapades en famille.
+
+L'espace de vie lumineux s'ouvre sur un salon moderne et convivial, harmonieusement agencé et décoré avec des matériaux de qualité. La cuisine entièrement équipée, aux finitions haut de gamme, vous permet de profiter pleinement de votre séjour en toute autonomie.
+
+L'appartement dispose également d'une salle de bain contemporaine, d'équipements modernes (connexion Wi-Fi haut débit, climatisation, télévision écran plat) et de rangements optimisés pour un confort absolu. Chaque détail a été pensé pour garantir une expérience premium, alliant intimité, bien-être et sérénité.`,
     country: "Cameroun",
-    latitude: 4.043024,
-    longitude: 9.6864962,
+    latitude: 4.043524,
+    longitude: 9.68962,
     category: "Appartement",
-    paymentFrequency: "Month",
-    price: 500000,
+    paymentFrequency: "Night",
+    price: 50000,
     rate: 4.9,
     reviews: 80,
     bedroom: 3,
@@ -374,5 +425,116 @@ export const properties = [
       property412,
       property413,
     ],
+  },
+];
+
+export const facilities = [
+  {
+    id: 1,
+    name: "Wi-Fi",
+    description:
+      "High-speed wireless internet access available throughout the property.",
+    image: wifi,
+  },
+  {
+    id: 2,
+    name: "Air Conditioning",
+    description:
+      "Air conditioning system to keep the space cool and comfortable.",
+    image: airConditioning,
+  },
+  {
+    id: 3,
+    name: "Heating",
+    description:
+      "Heating system available to maintain warmth during colder seasons.",
+    image: heating,
+  },
+  {
+    id: 4,
+    name: "Kitchen",
+    description:
+      "Fully equipped kitchen with cooking utensils and essential appliances.",
+    image: kitchen,
+  },
+  {
+    id: 5,
+    name: "Washing Machine",
+    description:
+      "On-site washing machine available for guests to do their laundry.",
+    image: washingMachine,
+  },
+  {
+    id: 6,
+    name: "Television",
+    description:
+      "Flat-screen television with access to cable or streaming services.",
+    image: tv,
+  },
+  {
+    id: 7,
+    name: "Free Parking",
+    description: "Free parking space available on the property or nearby.",
+    image: parking,
+  },
+  {
+    id: 8,
+    name: "Swimming Pool",
+    description: "Access to a swimming pool for relaxation and leisure.",
+    image: pool,
+  },
+  {
+    id: 9,
+    name: "Pet Friendly",
+    description:
+      "Pets are allowed in the accommodation under specific conditions.",
+    image: petFriendly,
+  },
+  {
+    id: 10,
+    name: "Balcony",
+    description: "Private balcony with outdoor space and a pleasant view.",
+    image: balcony,
+  },
+];
+
+export const user = {
+  name: "Johan Xavier",
+  email: "johaninho2432006@icloud.com",
+  avatar,
+};
+
+export const reviews = [
+  {
+    id: 1,
+    name: "Johan Xavier",
+    avatar,
+    rate: 3.5,
+    text: `Mel a été un hôte exceptionnel ! Disponible, réactif et toujours à l'écoute, il répondait à chaque besoin dans la minute, avec une vraie qualité de service. Le logement était impeccable : ménage fait tous les deux jours, linge et lessive impeccables, tout était parfaitement entretenu. L'emplacement est idéal, pratique et agréable.
+J'ai passé un excellent séjour et je recommande ce logement les yeux fermés à 100 % !`,
+  },
+  {
+    id: 2,
+    name: "Johan Xavier",
+    avatar,
+    rate: 4.5,
+    text: `Mel a été un hôte exceptionnel ! Disponible, réactif et toujours à l'écoute, il répondait à chaque besoin dans la minute, avec une vraie qualité de service. Le logement était impeccable : ménage fait tous les deux jours, linge et lessive impeccables, tout était parfaitement entretenu. L'emplacement est idéal, pratique et agréable.
+J'ai passé un excellent séjour et je recommande ce logement les yeux fermés à 100 % !`,
+  },
+  {
+    id: 3,
+    name: "Johan Xavier",
+    avatar,
+    rate: 5,
+    text: `Mel a été un hôte exceptionnel ! Disponible, réactif et toujours à l'écoute, il répondait à chaque besoin dans la minute, avec une vraie qualité de service. Le logement était impeccable : ménage fait tous les deux jours, linge et lessive impeccables, tout était parfaitement entretenu. L'emplacement est idéal, pratique et agréable.
+J'ai passé un excellent séjour et je recommande ce logement les yeux fermés à 100 % !`,
+  },
+  {
+    id: 4,
+    name: "Johan Xavier",
+    avatar,
+    rate: 4.5,
+    text: `Mel a été un hôte exceptionnel ! Disponible, réactif et toujours à l'écoute, il répondait à chaque besoin dans la minute, avec une vraie qualité de service. Le logement était impeccable : ménage fait tous les deux jours, linge et lessive impeccables, tout était parfaitement entretenu. L'emplacement est idéal, pratique et agréable.
+J'ai passé un excellent séjour et je recommande ce logement les yeux fermés à 100 % !`,
   },
 ];

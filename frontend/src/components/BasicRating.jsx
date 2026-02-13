@@ -13,7 +13,7 @@ export default function BasicRating({rate}) {
         readOnly={true}
         sx={{ fontSize: "16px" }}
         precision={0.5}
-        className="text-primary!"
+        className="text-primary! text-sm!"
       />
     </Box>
   );

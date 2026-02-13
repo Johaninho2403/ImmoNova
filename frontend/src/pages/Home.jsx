@@ -6,10 +6,13 @@ import PopularProperties from "../components/PopularProperties";
 import Services from "../components/Services";
 import NewLetters from "../components/NewLetters";
 import Testimonials from "../components/Testimonials";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
     <div>
+      <Navbar />
       <Hero />
       <PopularCities />
       <PopularCategories />
@@ -17,6 +20,7 @@ const Home = () => {
       <Services />
       <Testimonials />
       <NewLetters />
+      <Footer />
     </div>
   );
 };

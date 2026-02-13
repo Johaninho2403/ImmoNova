@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaBed } from "react-icons/fa";
@@ -6,13 +6,19 @@ import { FaBath } from "react-icons/fa";
 import BasicRating from "./BasicRating";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
+import { AppContext } from "../context/AppContext";
 
 const PropertyCard = (props) => {
   const [liked, setLiked] = useState(props.liked);
+  const { checkIn, checkOut, guests } = useContext(AppContext);
+
   return (
     <div className="flex justify-between gap-x-4 flex-col gap-y-2 group">
       <div className="relative h-60 w-full sm:h-50 overflow-hidden rounded-md">
-        <Link to={`/property/${props.id}`} className="h-full w-full sm:h-50">
+        <Link
+          to={`/property/${props.id}?&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`}
+          className="h-full w-full sm:h-50"
+        >
           <img
             src={props.images[0]}
             alt=""

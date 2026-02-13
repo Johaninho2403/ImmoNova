@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+ 
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { CiGlobe } from "react-icons/ci";
 import { IoMenuSharp } from "react-icons/io5";
-import { IoMdClose } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const {checkIn, checkOut, city} = useContext(AppContext)
+
+  const navigate = useNavigate()
   return (
     <header className="flex justify-between items-center py-5 px-2.5 md:px-[5%] lg:px-[10%]">
       <Link to={"/"}>
@@ -21,7 +26,7 @@ const Navbar = () => {
           HOME
         </NavLink>
         <NavLink
-          to={"/search"}
+          to={`/search?city=${city}&checkIn=${checkIn}&checkOut=${checkOut}`}
           className={
             "after:content-[''] hover:after:bg-primary hover:after:w-full hover:after:h-0.5 hover:after:block hover:after:rounded-[50px] after:w-0 after:transition-all duration-300"
           }
@@ -53,7 +58,10 @@ const Navbar = () => {
           Become a host
         </Link>
 
-        <button className="bg-primary hover:bg-primary-dull transition-all duration-300 text-white rounded-md px-4 py-2">
+        <button
+          className="bg-primary hover:bg-primary-dull transition-all duration-300 text-white rounded-md px-4 py-2"
+          onClick={() => navigate("/signin")}
+        >
           Sign In
         </button>
       </div>
@@ -64,19 +72,31 @@ const Navbar = () => {
         <IoMenuSharp />
       </div>
       <div
-        className={`${showMenu ? "right-0" : "-right-full"} sm:-right-full fixed top-0 bottom-0  bg-white z-10 w-60 px-4 transition-all duration-300`}
+        className={`bg-black/60 fixed top-0 bottom-0 right-0 ${showMenu ? "left-0" : "left-full"} z-10 transition-all duration-300`}
+        onClick={() => setShowMenu(false)}
+      ></div>
+      <div
+        className={`fixed top-0 bottom-0 -right-20 ${showMenu ? "w-60 right-0" : "w-0"} bg-white z-10 px-4 transition-all duration-300`}
       >
-        <nav className="mt-30">
+        <nav className="mt-10">
           <ul className="flex flex-col gap-y-5 sidebar">
-            <NavLink to={"/"}>HOME</NavLink>
-            <NavLink to={"/search"}>SEARCH</NavLink>
-            <NavLink to={"/about"}>ABOUT</NavLink>
-            <NavLink to={"/contact"}>CONTACT</NavLink>
+            <NavLink to={"/"} onClick={() => setShowMenu(false)}>
+              HOME
+            </NavLink>
+            <NavLink to={"/search"} onClick={() => setShowMenu(false)}>
+              SEARCH
+            </NavLink>
+            <NavLink to={"/about"} onClick={() => setShowMenu(false)}>
+              ABOUT
+            </NavLink>
+            <NavLink to={"/contact"} onClick={() => setShowMenu(false)}>
+              CONTACT
+            </NavLink>
+            <NavLink to={"/signin"} onClick={() => setShowMenu(false)}>
+              SIGNIN
+            </NavLink>
           </ul>
         </nav>
-        <div className="text-2xl text-slate-400 cursor-pointer absolute top-10 right-10 w-7 h-7 hover:bg-slate-300/80 rounded-full flex justify-center items-center" onClick={() => setShowMenu(false)}>
-            <IoMdClose />
-        </div>
       </div>
     </header>
   );
