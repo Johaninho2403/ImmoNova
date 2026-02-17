@@ -72,11 +72,11 @@ const Navbar = () => {
         <IoMenuSharp />
       </div>
       <div
-        className={`bg-black/60 fixed top-0 bottom-0 right-0 ${showMenu ? "left-0" : "left-full"} z-10 transition-all duration-300`}
+        className={`bg-black/60 fixed top-0 bottom-0 right-0 ${showMenu ? "left-0" : "left-full"} z-10000 transition-all duration-300`}
         onClick={() => setShowMenu(false)}
       ></div>
       <div
-        className={`fixed top-0 bottom-0 -right-20 ${showMenu ? "w-60 right-0" : "w-0"} bg-white z-10 px-4 transition-all duration-300`}
+        className={`fixed top-0 bottom-0 -right-20 ${showMenu ? "w-60 right-0" : "w-0"} bg-white z-10000 px-4 transition-all duration-300`}
       >
         <nav className="mt-10">
           <ul className="flex flex-col gap-y-5 sidebar">

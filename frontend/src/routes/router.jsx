@@ -5,6 +5,7 @@ import Search from '../pages/Search'
 import SignIn from '../pages/SignIn'
 import SignUp from '../pages/SignUp'
 import SingleProperty from '../pages/SingleProperty'
+import AddProperty from '../pages/AddProperty'
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: '/property/:id',
                 element: <SingleProperty />
+            },
+            {
+                path: "/add-property",
+                element: <AddProperty />
             }
         ]
     }

@@ -15,6 +15,7 @@ const AppContextProvider = ({ children }) => {
   );
   const [city, setCity] = useState("");
   const [guests, setGuests] = useState(1)
+  const GEOPIFY_API_KEY = import.meta.env.VITE_GEOPIFY_API_KEY
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       const getCity = async () => {
@@ -42,7 +43,8 @@ const AppContextProvider = ({ children }) => {
     city,
     setCity,
     guests,
-    setGuests
+    setGuests,
+    GEOPIFY_API_KEY
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

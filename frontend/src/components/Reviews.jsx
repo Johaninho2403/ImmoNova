@@ -57,7 +57,7 @@ const Reviews = ({property}) => {
             return (
                 <div className="flex flex-col gap-y-1" key={index}>
                     <div className="flex justify-between w-full items-center">
-                        <p>{item.name}</p>
+                        <p className="whitespace-nowrap text-sm sm:text-base">{item.name}</p>
                         <p className="text-primary">{item.rate}</p>
                     </div>
                     <div className="bg-slate-200 w-full h-1.5 rounded-full">

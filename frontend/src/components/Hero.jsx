@@ -4,7 +4,7 @@ import SearchForm from "./SearchForm";
 const Hero = () => {
   return (
     <div className="bg-[url('/hero.jpg')] bg-center py-10 md:py-20 px-2.5 md:px-[5%] lg:px-[10%] bg-cover">
-      <h1 className="text-white text-4xl font-medium font-serif">
+      <h1 className="text-white text-4xl font-medium font-['Prata']">
         Discover Your Perfect Stay
       </h1>
       <p className="text-white text-2xl max-w-60">
