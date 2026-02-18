@@ -1,0 +1,139 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                       String          @id @default(uuid()) @db.Uuid
+  name                     String
+  email                    String          @unique
+  password                 String
+  avatar                   String?
+  verificationOTP          String?
+  verificationOTPExpiresAt DateTime?
+  resetOTP                 String?
+  resetOTPExpiresAt        DateTime?
+  isVerified               Boolean         @default(false)
+  role                     Role            @default(USER)
+  properties               Property[]
+  createdAt                DateTime        @default(now())
+  updatedAt                DateTime        @default(now()) @updatedAt
+  reviews                  Review[]
+  bookings                 Booking[]
+  savedProperties          SavedProperty[]
+}
+
+model Property {
+  id                     String                   @id @default(uuid()) @db.Uuid
+  title                  String
+  description            String
+  images                 Image[]
+  facilies               Facility[]
+  price                  Float
+  address                String
+  latitude               Float
+  longitude              Float
+  bedrooms               Int
+  bathrooms              Int
+  superficy              Float
+  guests                 Int
+  city                   String
+  hostId                 String                   @db.Uuid
+  categoryId             String                   @db.Uuid
+  host                   User                     @relation(fields: [hostId], references: [id])
+  category               Category                 @relation(fields: [categoryId], references: [id])
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @default(now()) @updatedAt
+  propertiesOnFacilities PropertiesOnFacilities[]
+  reviews                Review[]
+  bookings               Booking[]
+  savedProperties        SavedProperty[]
+}
+
+model Category {
+  id         String     @id @default(uuid()) @db.Uuid
+  name       String
+  image      String
+  properties Property[]
+}
+
+model Image {
+  id         String   @id @default(uuid()) @db.Uuid
+  url        String
+  propertyId String   @db.Uuid
+  property   Property @relation(fields: [propertyId], references: [id])
+}
+
+model Facility {
+  id                     String                   @id @default(uuid()) @db.Uuid
+  name                   String
+  image                  String
+  properties             Property[]
+  propertiesOnFacilities PropertiesOnFacilities[]
+}
+
+model PropertiesOnFacilities {
+  propertyId String   @db.Uuid
+  facilityId String   @db.Uuid
+  property   Property @relation(fields: [propertyId], references: [id])
+  facility   Facility @relation(fields: [facilityId], references: [id])
+
+  @@id([propertyId, facilityId])
+}
+
+model Review {
+  id                  String   @id @default(uuid()) @db.Uuid
+  text                String
+  staff               Float
+  facilities          Float
+  cleanliness         Float
+  comfort             Float
+  valueForMoney       Float
+  geographicSituation Float
+  rate                Float
+  authorId            String   @db.Uuid
+  propertyId          String   @db.Uuid
+  property            Property @relation(fields: [propertyId], references: [id])
+  author              User     @relation(fields: [authorId], references: [id])
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @default(now()) @updatedAt
+}
+
+model Booking {
+  id         String   @id @default(uuid()) @db.Uuid
+  checkIn    DateTime
+  checOut    DateTime
+  tenantId   String   @db.Uuid
+  propertyId String   @db.Uuid
+  tenant     User     @relation(fields: [tenantId], references: [id])
+  property   Property @relation(fields: [propertyId], references: [id])
+  status     Status
+}
+
+model SavedProperty {
+  id         String   @id @default(uuid()) @db.Uuid
+  userId     String   @db.Uuid
+  propertyId String   @db.Uuid
+  user       User     @relation(fields: [userId], references: [id])
+  property   Property @relation(fields: [propertyId], references: [id])
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum Status {
+  ACCEPTED
+  PENDING
+  REFUSED
+}

@@ -73,7 +73,7 @@ function LocationMarker({ setCoords, setAddress, setIsLoading }) {
   });
 }
 export default function HorizontalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(1);
+  const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const rteRef = React.useRef(null);
   const [title, setTitle] = React.useState("");
