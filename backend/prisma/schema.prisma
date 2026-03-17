@@ -1,0 +1,193 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                       String          @id @default(uuid()) @db.Uuid
+  name                     String
+  email                    String          @unique
+  password                 String
+  avatar                   String?
+  verificationOTP          String?
+  resetOTP                 String?
+  isVerified               Boolean         @default(false)
+  role                     Role            @default(USER)
+  createdAt                DateTime        @default(now())
+  updatedAt                DateTime        @default(now()) @updatedAt
+  verificationOTPExpiresAt DateTime?
+  resetOTPExpiresAt        DateTime?
+  bookings                 Booking[]
+  properties               Property[]
+  reviews                  Review[]
+  savedProperties          SavedProperty[]
+  payment                  Payment[]
+}
+
+model Property {
+  id                     String                   @id @default(uuid()) @db.Uuid
+  title                  String
+  description            String
+  price                  Float
+  address                String
+  latitude               Float
+  longitude              Float
+  bedrooms               Int
+  bathrooms              Int
+  superficy              Float
+  guests                 Int
+  city                   String
+  instantBooking         Boolean                  @default(false)
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @default(now()) @updatedAt
+  hostId                 String                   @db.Uuid
+  categoryId             String                   @db.Uuid
+  bookings               Booking[]
+  images                 Image[]
+  propertiesOnFacilities PropertiesOnFacilities[]
+  category               Category                 @relation(fields: [categoryId], references: [id])
+  host                   User                     @relation(fields: [hostId], references: [id])
+  reviews                Review[]
+  savedProperties        SavedProperty[]
+  destinationId          String?                  @db.Uuid
+  destination            Destination?             @relation(fields: [destinationId], references: [id])
+}
+
+model Destination {
+  id         String     @id @default(uuid()) @db.Uuid
+  city       String     @unique
+  image      String
+  properties Property[]
+}
+
+model Category {
+  id         String     @id @default(uuid()) @db.Uuid
+  name       String
+  image      String
+  isPopular  Boolean    @default(false)
+  properties Property[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @default(now()) @updatedAt
+}
+
+model Image {
+  id         String   @id @default(uuid()) @db.Uuid
+  url        String
+  propertyId String   @db.Uuid
+  property   Property @relation(fields: [propertyId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+}
+
+model Facility {
+  id                     String                   @id @default(uuid()) @db.Uuid
+  name                   String
+  image                  String
+  isPopular              Boolean                  @default(false)
+  propertiesOnFacilities PropertiesOnFacilities[]
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @default(now()) @updatedAt
+}
+
+model PropertiesOnFacilities {
+  propertyId String   @db.Uuid
+  facilityId String   @db.Uuid
+  facility   Facility @relation(fields: [facilityId], references: [id])
+  property   Property @relation(fields: [propertyId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+
+  @@id([propertyId, facilityId])
+}
+
+model Review {
+  id                  String   @id @default(uuid()) @db.Uuid
+  text                String
+  staff               Float
+  facilities          Float
+  cleanliness         Float
+  comfort             Float
+  valueForMoney       Float
+  geographicSituation Float
+  rate                Float
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @default(now()) @updatedAt
+  authorId            String   @db.Uuid
+  propertyId          String   @db.Uuid
+  author              User     @relation(fields: [authorId], references: [id])
+  property            Property @relation(fields: [propertyId], references: [id])
+}
+
+model Booking {
+  id          String   @id @default(uuid()) @db.Uuid
+  checkIn     DateTime
+  checkOut    DateTime
+  status      Status
+  totalAmount Float
+  tenantId    String   @db.Uuid
+  propertyId  String   @db.Uuid
+  payment     Payment?
+  property    Property @relation(fields: [propertyId], references: [id])
+  tenant      User     @relation(fields: [tenantId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+}
+
+model SavedProperty {
+  userId     String   @db.Uuid
+  propertyId String   @db.Uuid
+  property   Property @relation(fields: [propertyId], references: [id])
+  user       User     @relation(fields: [userId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+
+  @@id(name: "like", [userId, propertyId])
+}
+
+model Payment {
+  id        String        @id @default(uuid()) @db.Uuid
+  ref       String        @unique
+  amount    Float
+  motive    String
+  type      Type
+  status    PaymentStatus
+  telephone String
+  operator  String?
+  bookingId String        @unique @db.Uuid
+  userId    String        @db.Uuid
+  user      User          @relation(fields: [userId], references: [id])
+  booking   Booking       @relation(fields: [bookingId], references: [id])
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @default(now()) @updatedAt
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum Status {
+  ACCEPTED
+  PENDING
+  PENDING_APPROVAL
+  REFUSED
+  COMPLETED
+  CANCELLED
+  FAILED
+}
+
+enum Type {
+  INCOMING
+  OUTGOING
+}
+
+enum PaymentStatus {
+  SUCCESS
+  PENDING
+  FAILED
+  REFUNDED
+}
